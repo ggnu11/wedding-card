@@ -13,6 +13,8 @@
     />
     <meta name="theme-color" content="#8b4513" />
     <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light" />
+    <meta name="format-detection" content="telephone=no" />
     <title>결혼식 청첩장</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Great+Vibes&display=swap"
@@ -20,26 +22,51 @@
     />
     <style>
       :root {
-        color-scheme: light only;
+        color-scheme: light only !important;
+        supported-color-schemes: light !important;
       }
 
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        color-scheme: light only !important;
+      }
+
+      /* 강제 라이트 모드 설정 */
+      html {
+        color-scheme: light only !important;
+        background: #f8f8f8 !important;
+      }
+
+      html[data-theme="dark"],
+      html[theme="dark"],
+      html.dark {
+        color-scheme: light only !important;
+        background: #f8f8f8 !important;
       }
 
       body {
         font-family: "Noto Serif KR", serif;
         line-height: 1.6;
-        color: #2c1810;
+        color: #2c1810 !important;
         min-height: 100vh;
-        background: #f8f8f8;
+        background: #f8f8f8 !important;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
+        color-scheme: light only !important;
+      }
+
+      /* 모든 다크 모드 클래스 무시 */
+      body.dark,
+      body[data-theme="dark"],
+      body[theme="dark"] {
+        background: #f8f8f8 !important;
+        color: #2c1810 !important;
+        color-scheme: light only !important;
       }
 
       .invitation-container {
@@ -1068,11 +1095,23 @@
         will-change: scroll-position;
       }
 
-      /* 다크 모드 비활성화 */
+      /* 다크 모드 완전 비활성화 */
       @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: light only !important;
+          background: #f8f8f8 !important;
+        }
+
+        html {
+          background: #f8f8f8 !important;
+          color: #2c1810 !important;
+          color-scheme: light only !important;
+        }
+
         body {
           background: #f8f8f8 !important;
           color: #2c1810 !important;
+          color-scheme: light only !important;
         }
 
         .invitation-container {
@@ -1413,7 +1452,13 @@
       }
     </style>
   </head>
-  <body style="background-color: #f8f8f8; color: #2c1810">
+  <body
+    style="
+      background-color: #f8f8f8 !important;
+      color: #2c1810 !important;
+      color-scheme: light only !important;
+    "
+  >
     <div class="invitation-container">
       <!-- 상단 히어로 섹션 -->
       <section class="hero-section">
@@ -1577,8 +1622,41 @@
         }, 2500);
       }
 
+      // 강제 라이트 모드 설정
+      function forceLightMode() {
+        document.documentElement.style.setProperty(
+          "color-scheme",
+          "light only",
+          "important"
+        );
+        document.documentElement.style.setProperty(
+          "background",
+          "#f8f8f8",
+          "important"
+        );
+        document.body.style.setProperty("background", "#f8f8f8", "important");
+        document.body.style.setProperty("color", "#2c1810", "important");
+        document.body.style.setProperty(
+          "color-scheme",
+          "light only",
+          "important"
+        );
+
+        // 다크 모드 클래스 제거
+        document.documentElement.classList.remove("dark");
+        document.body.classList.remove("dark");
+        document.documentElement.removeAttribute("data-theme");
+        document.body.removeAttribute("data-theme");
+      }
+
+      // 페이지 로드 즉시 라이트 모드 강제 설정
+      forceLightMode();
+
       // 페이지 로드 시 애니메이션
       document.addEventListener("DOMContentLoaded", function () {
+        // 다시 한번 라이트 모드 강제 설정
+        forceLightMode();
+
         const infoCards = document.querySelectorAll(".info-card");
         infoCards.forEach((card, index) => {
           card.style.opacity = "0";
@@ -1601,6 +1679,12 @@
           document.body.classList.add("standalone-mode");
         }
       });
+
+      // 색상 테마 변경 감지 및 강제 라이트 모드 유지
+      if (window.matchMedia) {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        mediaQuery.addListener(forceLightMode);
+      }
     </script>
 
     <!-- 카카오맵 스크립트 -->
