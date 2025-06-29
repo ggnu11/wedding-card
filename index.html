@@ -149,26 +149,58 @@
 
       /* 하단 정보 섹션 */
       .info-section {
-        padding: 40px 20px;
+        padding: 30px 20px;
         background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
       }
 
       .info-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 30px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 25px;
         max-width: 1000px;
         margin: 0 auto;
+        align-items: stretch;
+        height: 600px;
+      }
+
+      .location-card {
+        grid-column: 1;
+        grid-row: 1 / 3;
+      }
+
+      .map-section {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .map-section .map-container {
+        flex: 1;
+        margin: 0;
+      }
+
+      .account-card {
+        grid-column: 2;
+        grid-row: 2;
       }
 
       .info-card {
         background: white;
-        padding: 30px;
+        padding: 25px;
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         border: 2px solid rgba(212, 175, 55, 0.2);
         position: relative;
         transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .location-card,
+      .account-card {
+        height: 100%;
       }
 
       .info-card::before {
@@ -189,11 +221,11 @@
 
       .card-title {
         font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 700;
         color: #8b4513;
         text-align: center;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         letter-spacing: 1px;
       }
 
@@ -225,12 +257,18 @@
       }
 
       .transport-item {
-        background: rgba(212, 175, 55, 0.1);
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin-bottom: 8px;
-        font-size: 0.9rem;
+        background: rgba(212, 175, 55, 0.05);
+        padding: 6px 10px;
+        border-radius: 5px;
+        margin-bottom: 4px;
+        font-size: 0.85rem;
         color: #2c1810;
+        line-height: 1.3;
+        border-left: 2px solid rgba(212, 175, 55, 0.3);
+      }
+
+      .transport-item:last-child {
+        margin-bottom: 0;
       }
 
       /* 마음 전하실 곳 카드 */
@@ -244,6 +282,40 @@
 
       .account-item:last-child {
         margin-bottom: 0;
+      }
+
+      /* 카카오맵 스타일 */
+      .map-container {
+        margin: 15px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(139, 69, 19, 0.1);
+        border: 2px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .root_daum_roughmap {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 200px !important;
+      }
+
+      .transport-section {
+        margin-bottom: 12px;
+      }
+
+      .transport-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .transport-title {
+        font-family: "Playfair Display", serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #8b4513;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        padding-bottom: 2px;
       }
 
       .account-header {
@@ -286,70 +358,6 @@
       }
 
       .copy-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-      }
-
-      /* 참석여부 카드 */
-      .rsvp-form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .rsvp-options {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-      }
-
-      .rsvp-option {
-        flex: 1;
-        padding: 12px;
-        border: 2px solid #d4af37;
-        border-radius: 10px;
-        background: white;
-        cursor: pointer;
-        text-align: center;
-        transition: all 0.3s ease;
-        font-weight: 500;
-      }
-
-      .rsvp-option:hover,
-      .rsvp-option.selected {
-        background: #d4af37;
-        color: white;
-      }
-
-      .guest-count {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .guest-input {
-        width: 60px;
-        padding: 8px;
-        border: 2px solid #d4af37;
-        border-radius: 5px;
-        text-align: center;
-        font-size: 1rem;
-      }
-
-      .rsvp-submit {
-        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-      }
-
-      .rsvp-submit:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
       }
@@ -427,6 +435,45 @@
 
         .info-card {
           padding: 25px;
+        }
+
+        .transport-section {
+          margin-bottom: 12px;
+        }
+
+        .transport-title {
+          font-size: 0.95rem;
+          margin-bottom: 6px;
+        }
+
+        .transport-item {
+          font-size: 0.8rem;
+          padding: 5px 8px;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+          height: auto;
+        }
+
+        .location-card {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .map-section {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .map-section .map-container {
+          height: 250px;
+        }
+
+        .account-card {
+          grid-column: 1;
+          grid-row: 3;
         }
       }
 
@@ -506,17 +553,17 @@
         <div class="hero-content">
           <h1 class="wedding-title">Wedding Invitation</h1>
           <div class="couple-names">
-            김철수 <span class="heart">♥</span> 최경혼
+            남태양 <span class="heart">♥</span> 최한나
           </div>
 
           <div class="parents-info">
             <div class="parent-section">
               <div class="parent-label">신랑측</div>
-              <div class="parent-details">김○○ · 이○○의 장남 김철수</div>
+              <div class="parent-details">남용현 · 이세란의 장남 남태양</div>
             </div>
             <div class="parent-section">
               <div class="parent-label">신부측</div>
-              <div class="parent-details">최○○ · 박○○의 장녀 최경혼</div>
+              <div class="parent-details">최경호 · 김진숙의 장녀 최한나</div>
             </div>
           </div>
         </div>
@@ -525,88 +572,76 @@
       <!-- 하단 정보 섹션 -->
       <section class="info-section">
         <div class="info-grid">
+          <!-- 지도 섹션 -->
+          <div class="map-section">
+            <div class="map-container">
+              <div
+                id="daumRoughmapContainer1751181001388"
+                class="root_daum_roughmap root_daum_roughmap_landing"
+              ></div>
+            </div>
+          </div>
+
           <!-- 오시는 길 카드 -->
-          <div class="info-card">
-            <div class="card-icon">📍</div>
+          <div class="info-card location-card">
             <h3 class="card-title">오시는 길</h3>
             <div class="location-details">
-              <div class="venue-name">그랜드 웨딩홀</div>
+              <div class="venue-name">서울가든호텔</div>
               <div class="venue-address">
-                서울특별시 강남구 테헤란로 123<br />
-                3층 그레이스홀<br />
-                <strong>2024년 12월 21일 토요일 오후 2시</strong>
+                서울 마포구 마포대로 58<br />
+                2층 그랜드볼룸<br />
+                <strong>2025년 9월 6일 토요일 오후 12시</strong>
               </div>
-              <div class="transport-item">
-                🚇 2호선 역삼역 3번 출구 도보 5분
+
+              <div class="transport-section">
+                <div class="transport-title">지하철</div>
+                <div class="transport-item">
+                  마포역 (5호선) 3번 출구 도보 3분
+                </div>
+                <div class="transport-item">
+                  공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
+                </div>
               </div>
-              <div class="transport-item">
-                🚗 건물 지하 1-3층 주차 (3시간 무료)
+
+              <div class="transport-section">
+                <div class="transport-title">버스</div>
+                <div class="transport-item">
+                  간선버스(파랑): 600, 260, 261, 463, 160
+                </div>
+                <div class="transport-item">
+                  지선버스(초록): 7611, 7613, 7016
+                </div>
+                <div class="transport-item">
+                  광역버스(빨강): 8600, 8601, 6605
+                </div>
               </div>
-              <div class="transport-item">
-                🚌 간선 146, 740 / 지선 3412, 4319
+
+              <div class="transport-section">
+                <div class="transport-title">주차</div>
+                <div class="transport-item">
+                  주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
+                  호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우
+                  접수대에서<br />
+                  발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
+                </div>
               </div>
             </div>
           </div>
 
           <!-- 마음 전하실 곳 카드 -->
-          <div class="info-card">
-            <div class="card-icon">💝</div>
+          <div class="info-card account-card">
             <h3 class="card-title">마음 전하실 곳</h3>
             <div class="account-item">
               <div class="account-header">
-                <span class="bank-name">국민은행</span>
-                <span class="account-holder">김철수</span>
-              </div>
-              <div class="account-number">123-456-789012</div>
-              <button
-                class="copy-btn"
-                onclick="copyToClipboard('123-456-789012')"
-              >
-                계좌번호 복사
-              </button>
-            </div>
-            <div class="account-item">
-              <div class="account-header">
                 <span class="bank-name">신한은행</span>
-                <span class="account-holder">최경혼</span>
+                <span class="account-holder">남태양</span>
               </div>
-              <div class="account-number">987-654-321098</div>
+              <div class="account-number">110-123-456789</div>
               <button
                 class="copy-btn"
-                onclick="copyToClipboard('987-654-321098')"
+                onclick="copyToClipboard('110-123-456789')"
               >
                 계좌번호 복사
-              </button>
-            </div>
-          </div>
-
-          <!-- 참석여부 카드 -->
-          <div class="info-card">
-            <div class="card-icon">✉️</div>
-            <h3 class="card-title">참석여부</h3>
-            <div class="rsvp-form">
-              <div class="rsvp-options">
-                <div class="rsvp-option" onclick="selectRsvp(this, 'yes')">
-                  참석
-                </div>
-                <div class="rsvp-option" onclick="selectRsvp(this, 'no')">
-                  불참
-                </div>
-              </div>
-              <div class="guest-count">
-                <span>참석 인원:</span>
-                <input
-                  type="number"
-                  class="guest-input"
-                  min="0"
-                  max="10"
-                  value="1"
-                  id="guestCount"
-                />
-                <span>명</span>
-              </div>
-              <button class="rsvp-submit" onclick="submitRsvp()">
-                참석여부 전달
               </button>
             </div>
           </div>
@@ -615,33 +650,6 @@
     </div>
 
     <script>
-      let selectedRsvp = "";
-
-      // RSVP 선택
-      function selectRsvp(element, type) {
-        document.querySelectorAll(".rsvp-option").forEach((option) => {
-          option.classList.remove("selected");
-        });
-        element.classList.add("selected");
-        selectedRsvp = type;
-      }
-
-      // RSVP 제출
-      function submitRsvp() {
-        if (!selectedRsvp) {
-          showToast("참석여부를 선택해주세요.");
-          return;
-        }
-
-        const guestCount = document.getElementById("guestCount").value;
-        const message =
-          selectedRsvp === "yes"
-            ? `참석 의사를 전달했습니다. (${guestCount}명)`
-            : "불참 의사를 전달했습니다.";
-
-        showToast(message);
-      }
-
       // 계좌번호 복사 기능
       function copyToClipboard(text) {
         navigator.clipboard
@@ -694,6 +702,24 @@
           }, index * 200 + 500);
         });
       });
+    </script>
+
+    <!-- 카카오맵 스크립트 -->
+    <!-- 2. 설치 스크립트 -->
+    <script
+      charset="UTF-8"
+      class="daum_roughmap_loader_script"
+      src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"
+    ></script>
+
+    <!-- 3. 실행 스크립트 -->
+    <script charset="UTF-8">
+      new daum.roughmap.Lander({
+        timestamp: "1751181001388",
+        key: "4du3f6uc3re",
+        mapWidth: "640",
+        mapHeight: "360",
+      }).render();
     </script>
   </body>
 </html>
