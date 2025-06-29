@@ -1,0 +1,211 @@
+/* 위치 정보 스타일 */
+.location {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 250, 250, 0.95) 100%
+  );
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  animation: slideInLeft 0.8s ease-out 0.6s both;
+}
+
+.location::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #d4af37, #b8860b, #d4af37);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.location h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #8b4513;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.venue-info {
+  background: rgba(212, 175, 55, 0.08);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-left: 4px solid #d4af37;
+}
+
+.venue-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c1810;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.venue-address {
+  font-family: "Noto Serif KR", serif;
+  font-size: 1rem;
+  color: #5d4037;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.transport-info {
+  display: grid;
+  gap: 15px;
+}
+
+.transport-item {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 3px solid #d4af37;
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.05);
+}
+
+.transport-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8b4513;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.transport-details {
+  font-family: "Noto Serif KR", serif;
+  font-size: 0.95rem;
+  color: #2c1810;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.map-container {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(139, 69, 19, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  display: block;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .location {
+    padding: 20px;
+  }
+
+  .location h3 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+
+  .venue-info {
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+
+  .venue-name {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  .venue-address {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .transport-info {
+    gap: 12px;
+  }
+
+  .transport-item {
+    padding: 12px;
+  }
+
+  .transport-title {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .transport-details {
+    font-size: 0.9rem;
+  }
+
+  .map-container {
+    margin-top: 18px;
+  }
+
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .location {
+    padding: 18px 15px;
+  }
+
+  .location h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .venue-info {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .venue-name {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+
+  .venue-address {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .transport-info {
+    gap: 10px;
+  }
+
+  .transport-item {
+    padding: 10px;
+  }
+
+  .transport-title {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  .transport-details {
+    font-size: 0.85rem;
+  }
+
+  .map-container {
+    margin-top: 15px;
+  }
+
+  .map-container iframe {
+    height: 180px;
+  }
+}

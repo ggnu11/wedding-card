@@ -1,0 +1,239 @@
+.wedding-hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.wedding-hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.wedding-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 0 7%;
+}
+.wedding-hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.wedding-hero-names .label {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+.wedding-hero-names .name {
+  font-size: 1.5rem;
+  font-family: "Noto Serif KR", serif;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.wedding-hero-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.wedding-hero-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  border-radius: 8px;
+  padding: 28px 32px;
+  font-size: 2rem;
+  font-family: "Noto Serif KR", serif;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  line-height: 1.3;
+}
+@media (max-width: 768px) {
+  .wedding-hero {
+    height: 320px;
+  }
+  .wedding-hero-box {
+    font-size: 1.3rem;
+    padding: 18px 12px;
+  }
+  .wedding-hero-names .name {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 480px) {
+  .wedding-hero {
+    height: 220px;
+  }
+  .wedding-hero-overlay {
+    padding: 0 2%;
+  }
+  .wedding-hero-box {
+    font-size: 1rem;
+    padding: 10px 4px;
+  }
+}
+
+/* 헤더 섹션 */
+.header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(250, 250, 250, 0.98) 100%
+  );
+  margin-bottom: 0;
+  box-shadow: 0 20px 60px rgba(139, 69, 19, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #d4af37 20%,
+    #b8860b 50%,
+    #d4af37 80%,
+    transparent 100%
+  );
+}
+
+.header::after {
+  content: "❦ ❦ ❦";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d4af37;
+  font-size: 16px;
+  letter-spacing: 20px;
+  font-family: "Libre Baskerville", serif;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 30px 60px rgba(139, 69, 19, 0.2),
+    0 0 0 1px rgba(212, 175, 55, 0.2);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.5s ease;
+  display: block;
+}
+
+.main-image:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 50px 100px rgba(139, 69, 19, 0.4),
+    0 0 0 3px rgba(212, 175, 55, 0.5);
+}
+
+.title {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #2c1810;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1);
+}
+
+.names {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #8b4513;
+  margin-bottom: 25px;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.names::before,
+.names::after {
+  content: "♥";
+  font-family: "Great Vibes", cursive;
+  color: #d4af37;
+  font-size: 1.5rem;
+  margin: 0 20px;
+  animation: heartBeat 2s ease-in-out infinite;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .header {
+    padding: 40px 15px 30px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .names {
+    font-size: 1.5rem;
+  }
+
+  .main-image {
+    height: 250px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 30px 15px 25px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .names {
+    font-size: 1.3rem;
+  }
+
+  .main-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .names {
+    font-size: 1.2rem;
+  }
+
+  .main-image {
+    height: 180px;
+  }
+}

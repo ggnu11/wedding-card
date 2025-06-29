@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결혼식 청첩장</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Noto Serif KR", serif;
+        line-height: 1.6;
+        color: #2c1810;
+        min-height: 100vh;
+        background: #f8f8f8;
+        overflow-x: hidden;
+      }
+
+      .invitation-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 100vh;
+        background: white;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      /* 상단 히어로 섹션 - 배경 이미지 */
+      .hero-section {
+        position: relative;
+        height: 50vh;
+        min-height: 400px;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("marry.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+
+      .hero-content {
+        z-index: 2;
+        padding: 20px;
+      }
+
+      .wedding-title {
+        font-family: "Great Vibes", cursive;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        color: #d4af37;
+      }
+
+      .couple-names {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        letter-spacing: 3px;
+      }
+
+      .couple-names .heart {
+        color: #d4af37;
+        margin: 0 15px;
+        animation: heartBeat 2s ease-in-out infinite;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .parents-info {
+        background: rgba(255, 255, 255, 0.95);
+        color: #2c1810;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        max-width: 500px;
+        width: 100%;
+      }
+
+      .parent-section {
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .parent-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .parent-label {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #8b4513;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+
+      .parent-details {
+        font-family: "Noto Serif KR", serif;
+        font-size: 1rem;
+        color: #5d4037;
+        line-height: 1.4;
+      }
+
+      /* 하단 정보 섹션 */
+      .info-section {
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .info-card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border: 2px solid rgba(212, 175, 55, 0.2);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .info-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+        border-radius: 20px 20px 0 0;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #8b4513;
+        text-align: center;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+      }
+
+      .card-icon {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #d4af37;
+      }
+
+      /* 오시는 길 카드 */
+      .location-details {
+        text-align: center;
+      }
+
+      .venue-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c1810;
+        margin-bottom: 10px;
+      }
+
+      .venue-address {
+        font-size: 0.95rem;
+        color: #5d4037;
+        margin-bottom: 15px;
+        line-height: 1.5;
+      }
+
+      .transport-item {
+        background: rgba(212, 175, 55, 0.1);
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        color: #2c1810;
+      }
+
+      /* 마음 전하실 곳 카드 */
+      .account-item {
+        background: rgba(212, 175, 55, 0.05);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 3px solid #d4af37;
+      }
+
+      .account-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .account-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .bank-name {
+        font-weight: 600;
+        color: #2c1810;
+      }
+
+      .account-holder {
+        font-size: 0.9rem;
+        color: #5d4037;
+      }
+
+      .account-number {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #2c1810;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+
+      .copy-btn {
+        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        width: 100%;
+      }
+
+      .copy-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      }
+
+      /* 참석여부 카드 */
+      .rsvp-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .rsvp-options {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .rsvp-option {
+        flex: 1;
+        padding: 12px;
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        background: white;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .rsvp-option:hover,
+      .rsvp-option.selected {
+        background: #d4af37;
+        color: white;
+      }
+
+      .guest-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .guest-input {
+        width: 60px;
+        padding: 8px;
+        border: 2px solid #d4af37;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .rsvp-submit {
+        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .rsvp-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      }
+
+      /* 토스트 알림 */
+      .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        box-shadow: 0 15px 35px rgba(139, 69, 19, 0.3);
+        z-index: 1000;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-weight: 500;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 45vh;
+          min-height: 350px;
+          background-attachment: scroll;
+        }
+
+        .wedding-title {
+          font-size: 2.5rem;
+        }
+
+        .couple-names {
+          font-size: 2rem;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 0 15px;
+        }
+
+        .info-card {
+          padding: 25px;
+        }
+
+        .parents-info {
+          padding: 20px;
+          margin: 0 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-section {
+          height: 40vh;
+          min-height: 300px;
+        }
+
+        .wedding-title {
+          font-size: 2rem;
+        }
+
+        .couple-names {
+          font-size: 1.5rem;
+        }
+
+        .info-card {
+          padding: 20px;
+        }
+
+        .card-title {
+          font-size: 1.3rem;
+        }
+
+        .parents-info {
+          padding: 18px;
+        }
+
+        .toast {
+          top: 10px;
+          right: 10px;
+          left: 10px;
+          transform: translateY(-100%);
+        }
+
+        .toast.show {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="invitation-container">
+      <!-- 상단 히어로 섹션 -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="wedding-title">Wedding Invitation</h1>
+          <div class="couple-names">
+            김철수 <span class="heart">♥</span> 최경혼
+          </div>
+
+          <div class="parents-info">
+            <div class="parent-section">
+              <div class="parent-label">신랑측</div>
+              <div class="parent-details">김○○ · 이○○의 장남 김철수</div>
+            </div>
+            <div class="parent-section">
+              <div class="parent-label">신부측</div>
+              <div class="parent-details">최○○ · 박○○의 장녀 최경혼</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 하단 정보 섹션 -->
+      <section class="info-section">
+        <div class="info-grid">
+          <!-- 오시는 길 카드 -->
+          <div class="info-card">
+            <div class="card-icon">📍</div>
+            <h3 class="card-title">오시는 길</h3>
+            <div class="location-details">
+              <div class="venue-name">그랜드 웨딩홀</div>
+              <div class="venue-address">
+                서울특별시 강남구 테헤란로 123<br />
+                3층 그레이스홀<br />
+                <strong>2024년 12월 21일 토요일 오후 2시</strong>
+              </div>
+              <div class="transport-item">
+                🚇 2호선 역삼역 3번 출구 도보 5분
+              </div>
+              <div class="transport-item">
+                🚗 건물 지하 1-3층 주차 (3시간 무료)
+              </div>
+              <div class="transport-item">
+                🚌 간선 146, 740 / 지선 3412, 4319
+              </div>
+            </div>
+          </div>
+
+          <!-- 마음 전하실 곳 카드 -->
+          <div class="info-card">
+            <div class="card-icon">💝</div>
+            <h3 class="card-title">마음 전하실 곳</h3>
+            <div class="account-item">
+              <div class="account-header">
+                <span class="bank-name">국민은행</span>
+                <span class="account-holder">김철수</span>
+              </div>
+              <div class="account-number">123-456-789012</div>
+              <button
+                class="copy-btn"
+                onclick="copyToClipboard('123-456-789012')"
+              >
+                계좌번호 복사
+              </button>
+            </div>
+            <div class="account-item">
+              <div class="account-header">
+                <span class="bank-name">신한은행</span>
+                <span class="account-holder">최경혼</span>
+              </div>
+              <div class="account-number">987-654-321098</div>
+              <button
+                class="copy-btn"
+                onclick="copyToClipboard('987-654-321098')"
+              >
+                계좌번호 복사
+              </button>
+            </div>
+          </div>
+
+          <!-- 참석여부 카드 -->
+          <div class="info-card">
+            <div class="card-icon">✉️</div>
+            <h3 class="card-title">참석여부</h3>
+            <div class="rsvp-form">
+              <div class="rsvp-options">
+                <div class="rsvp-option" onclick="selectRsvp(this, 'yes')">
+                  참석
+                </div>
+                <div class="rsvp-option" onclick="selectRsvp(this, 'no')">
+                  불참
+                </div>
+              </div>
+              <div class="guest-count">
+                <span>참석 인원:</span>
+                <input
+                  type="number"
+                  class="guest-input"
+                  min="0"
+                  max="10"
+                  value="1"
+                  id="guestCount"
+                />
+                <span>명</span>
+              </div>
+              <button class="rsvp-submit" onclick="submitRsvp()">
+                참석여부 전달
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      let selectedRsvp = "";
+
+      // RSVP 선택
+      function selectRsvp(element, type) {
+        document.querySelectorAll(".rsvp-option").forEach((option) => {
+          option.classList.remove("selected");
+        });
+        element.classList.add("selected");
+        selectedRsvp = type;
+      }
+
+      // RSVP 제출
+      function submitRsvp() {
+        if (!selectedRsvp) {
+          showToast("참석여부를 선택해주세요.");
+          return;
+        }
+
+        const guestCount = document.getElementById("guestCount").value;
+        const message =
+          selectedRsvp === "yes"
+            ? `참석 의사를 전달했습니다. (${guestCount}명)`
+            : "불참 의사를 전달했습니다.";
+
+        showToast(message);
+      }
+
+      // 계좌번호 복사 기능
+      function copyToClipboard(text) {
+        navigator.clipboard
+          .writeText(text)
+          .then(function () {
+            showToast("계좌번호가 복사되었습니다.");
+          })
+          .catch(function (err) {
+            console.error("복사 실패:", err);
+            // 폴백 방법
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            showToast("계좌번호가 복사되었습니다.");
+          });
+      }
+
+      // 토스트 알림 표시
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => {
+            document.body.removeChild(toast);
+          }, 400);
+        }, 3000);
+      }
+
+      // 페이지 로드 시 애니메이션
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".info-card");
+        cards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          setTimeout(() => {
+            card.style.transition = "all 0.8s ease-out";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 200 + 500);
+        });
+      });
+    </script>
+  </body>
+</html>

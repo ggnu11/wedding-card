@@ -1,0 +1,256 @@
+/* 계좌 정보 스타일 */
+.account {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 250, 250, 0.95) 100%
+  );
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  animation: slideInRight 0.8s ease-out 0.6s both;
+}
+
+.account::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #d4af37, #b8860b, #d4af37);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.account h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #8b4513;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.account-section {
+  margin-bottom: 20px;
+}
+
+.account-section:last-child {
+  margin-bottom: 0;
+}
+
+.account-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8b4513;
+  margin-bottom: 12px;
+  text-align: center;
+  padding: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #d4af37;
+  letter-spacing: 0.5px;
+}
+
+.account-item {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-left: 3px solid #d4af37;
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.05);
+  position: relative;
+}
+
+.account-item:last-child {
+  margin-bottom: 0;
+}
+
+.bank-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.bank-name {
+  font-family: "Noto Serif KR", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c1810;
+  letter-spacing: 0.5px;
+}
+
+.account-holder {
+  font-family: "Noto Serif KR", serif;
+  font-size: 0.9rem;
+  color: #5d4037;
+  letter-spacing: 0.3px;
+}
+
+.account-number {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2c1810;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.copy-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+  background: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
+}
+
+.copy-btn:hover::before {
+  left: 100%;
+}
+
+.copy-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .account {
+    padding: 20px;
+  }
+
+  .account h3 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+
+  .account-section {
+    margin-bottom: 18px;
+  }
+
+  .account-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 6px;
+  }
+
+  .account-item {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .bank-info {
+    margin-bottom: 6px;
+  }
+
+  .bank-name {
+    font-size: 0.95rem;
+  }
+
+  .account-holder {
+    font-size: 0.85rem;
+  }
+
+  .account-number {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .copy-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .account {
+    padding: 18px 15px;
+  }
+
+  .account h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .account-section {
+    margin-bottom: 15px;
+  }
+
+  .account-title {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    padding: 5px;
+  }
+
+  .account-item {
+    padding: 10px;
+    margin-bottom: 6px;
+  }
+
+  .bank-info {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+  }
+
+  .bank-name {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .account-holder {
+    font-size: 0.8rem;
+  }
+
+  .account-number {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    word-break: break-all;
+  }
+
+  .copy-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+}
