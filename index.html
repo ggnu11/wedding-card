@@ -12,12 +12,17 @@
       content="black-translucent"
     />
     <meta name="theme-color" content="#8b4513" />
+    <meta name="color-scheme" content="light only" />
     <title>결혼식 청첩장</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        color-scheme: light only;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -1063,6 +1068,88 @@
         will-change: scroll-position;
       }
 
+      /* 다크 모드 비활성화 */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #f8f8f8 !important;
+          color: #2c1810 !important;
+        }
+
+        .invitation-container {
+          background: white !important;
+          color: #2c1810 !important;
+        }
+
+        .info-section {
+          background: linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fafafa 50%,
+            #ffffff 100%
+          ) !important;
+        }
+
+        .info-card {
+          background: linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fafafa 50%,
+            #ffffff 100%
+          ) !important;
+          color: #2c1810 !important;
+        }
+
+        .info-title {
+          color: #8b4513 !important;
+        }
+
+        .bank-name,
+        .account-number,
+        .venue-name {
+          color: #2c1810 !important;
+        }
+
+        .account-holder,
+        .venue-address {
+          color: #5d4037 !important;
+        }
+
+        .transport-title {
+          color: #8b4513 !important;
+        }
+
+        .transport-item {
+          color: #2c1810 !important;
+          background: linear-gradient(
+            135deg,
+            rgba(212, 175, 55, 0.05) 0%,
+            rgba(212, 175, 55, 0.08) 100%
+          ) !important;
+        }
+
+        .account-item {
+          background: linear-gradient(
+            135deg,
+            rgba(212, 175, 55, 0.05) 0%,
+            rgba(212, 175, 55, 0.08) 100%
+          ) !important;
+        }
+
+        .copy-btn {
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(248, 248, 248, 0.9) 50%,
+            rgba(255, 255, 255, 0.9) 100%
+          ) !important;
+          color: #2c1810 !important;
+        }
+
+        .account-message {
+          color: #8b4513 !important;
+        }
+      }
+
       /* 웹앱 standalone 모드 최적화 */
       .standalone-mode {
         -webkit-user-select: none;
@@ -1326,7 +1413,7 @@
       }
     </style>
   </head>
-  <body>
+  <body style="background-color: #f8f8f8; color: #2c1810">
     <div class="invitation-container">
       <!-- 상단 히어로 섹션 -->
       <section class="hero-section">
