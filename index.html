@@ -37,8 +37,8 @@
       /* 상단 히어로 섹션 - 배경 이미지 */
       .hero-section {
         position: relative;
-        height: 65vh;
-        min-height: 550px;
+        height: 100vh;
+        min-height: 800px;
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.3)
@@ -91,6 +91,26 @@
         font-size: 2.5rem;
         animation: heartBeat 3s ease-in-out infinite;
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+        position: relative;
+        display: inline-block;
+      }
+
+      .couple-names .heart::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(
+          circle,
+          rgba(212, 175, 55, 0.15) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        z-index: -1;
+        animation: heartGlow 3s ease-in-out infinite;
       }
 
       @keyframes heartBeat {
@@ -102,6 +122,18 @@
         50% {
           transform: scale(1.1);
           opacity: 1;
+        }
+      }
+
+      @keyframes heartGlow {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.6;
         }
       }
 
@@ -148,89 +180,193 @@
         margin-bottom: 8px;
       }
 
-      /* 하단 정보 섹션 */
-      .info-section {
-        padding: 30px 20px;
-        background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-        min-height: 35vh;
+      /* 하단 버튼 섹션 */
+      .button-section {
+        position: absolute;
+        right: 60px;
+        bottom: 80px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 5;
       }
 
-      .info-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 1fr;
+      .button-container {
+        display: flex;
+        flex-direction: column;
         gap: 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-        align-items: stretch;
+        align-items: flex-end;
+      }
+
+      .main-button {
+        width: 200px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(255, 255, 255, 0.85) 50%,
+          rgba(255, 255, 255, 0.95) 100%
+        );
+        color: #2c1810;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 18px 25px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+          0 4px 16px rgba(255, 255, 255, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        text-shadow: none;
+        letter-spacing: 0.5px;
+        font-family: "Playfair Display", serif;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      .main-button:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2),
+          0 6px 20px rgba(255, 255, 255, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 1);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0.95) 50%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        border-color: rgba(255, 255, 255, 1);
+        color: #1a0f08;
+      }
+
+      /* 모달 스타일 */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-      }
-
-      .location-card {
-        grid-column: 1;
-        grid-row: 1 / 3;
-      }
-
-      .map-section {
-        grid-column: 2;
-        grid-row: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .map-section .map-container {
-        flex: 1;
-        margin: 0;
-      }
-
-      .account-card {
-        grid-column: 2;
-        grid-row: 2;
-      }
-
-      .info-card {
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: 2px solid rgba(212, 175, 55, 0.2);
-        position: relative;
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
-
-      .location-card,
-      .account-card {
         height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        backdrop-filter: blur(5px);
       }
 
-      .info-card::before {
+      .modal.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      .modal-content {
+        background: linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #fafafa 50%,
+          #ffffff 100%
+        );
+        padding: 25px;
+        border-radius: 30px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25),
+          0 15px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        position: relative;
+        max-width: 480px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      .modal-content::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
-        border-radius: 20px 20px 0 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.8),
+          transparent
+        );
+        border-radius: 30px 30px 0 0;
       }
 
-      .info-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .modal-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #2c1810;
+        margin: 0;
+        letter-spacing: 0.5px;
+      }
+
+      .close-btn {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        font-size: 1.2rem;
+        color: #2c1810;
+        cursor: pointer;
+        padding: 8px 10px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .close-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        border-color: rgba(0, 0, 0, 0.2);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       .card-title {
         font-family: "Playfair Display", serif;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 700;
         color: #8b4513;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         letter-spacing: 1px;
       }
 
@@ -257,19 +393,24 @@
       .venue-address {
         font-size: 0.95rem;
         color: #5d4037;
-        margin-bottom: 15px;
-        line-height: 1.5;
+        margin-bottom: 8px;
+        line-height: 1.4;
       }
 
       .transport-item {
-        background: rgba(212, 175, 55, 0.05);
-        padding: 6px 10px;
-        border-radius: 5px;
-        margin-bottom: 4px;
-        font-size: 0.85rem;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.03) 0%,
+          rgba(212, 175, 55, 0.06) 100%
+        );
+        padding: 4px 10px;
+        border-radius: 8px;
+        margin-bottom: 2px;
+        font-size: 0.8rem;
         color: #2c1810;
-        line-height: 1.3;
-        border-left: 2px solid rgba(212, 175, 55, 0.3);
+        line-height: 1.2;
+        border-left: 2px solid rgba(212, 175, 55, 0.4);
+        box-shadow: 0 1px 3px rgba(212, 175, 55, 0.1);
       }
 
       .transport-item:last-child {
@@ -278,11 +419,16 @@
 
       /* 마음 전하실 곳 카드 */
       .account-item {
-        background: rgba(212, 175, 55, 0.05);
-        padding: 15px;
-        border-radius: 10px;
-        margin-bottom: 15px;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.03) 0%,
+          rgba(212, 175, 55, 0.08) 100%
+        );
+        padding: 12px 15px;
+        border-radius: 12px;
+        margin-bottom: 10px;
         border-left: 3px solid #d4af37;
+        box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
       }
 
       .account-item:last-child {
@@ -291,21 +437,21 @@
 
       /* 카카오맵 스타일 */
       .map-container {
-        margin: 15px 0;
+        margin: 8px 0;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 10px 25px rgba(139, 69, 19, 0.1);
+        box-shadow: 0 8px 20px rgba(139, 69, 19, 0.1);
         border: 2px solid rgba(212, 175, 55, 0.2);
       }
 
       .root_daum_roughmap {
         width: 100% !important;
-        height: 100% !important;
-        min-height: 200px !important;
+        height: 180px !important;
+        min-height: 180px !important;
       }
 
       .transport-section {
-        margin-bottom: 12px;
+        margin-bottom: 6px;
       }
 
       .transport-section:last-child {
@@ -314,10 +460,10 @@
 
       .transport-title {
         font-family: "Playfair Display", serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 600;
         color: #8b4513;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         letter-spacing: 0.5px;
         border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         padding-bottom: 2px;
@@ -350,21 +496,37 @@
       }
 
       .copy-btn {
-        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+        background: linear-gradient(
+          135deg,
+          #d4af37 0%,
+          #f4e4bc 50%,
+          #d4af37 100%
+        );
         color: white;
         border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.85rem;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
         width: 100%;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        letter-spacing: 0.5px;
       }
 
       .copy-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        background: linear-gradient(
+          135deg,
+          #e6c547 0%,
+          #f8e8c8 50%,
+          #e6c547 100%
+        );
       }
 
       /* 토스트 알림 */
@@ -484,40 +646,63 @@
 
       @media (max-width: 768px) and (min-width: 481px) {
         .hero-section {
-          height: 55vh;
-          min-height: 450px;
+          height: 100vh;
+          min-height: 700px;
           background-position: center 15%;
         }
 
-        .info-section {
-          min-height: 40vh;
-          padding: 20px;
+        .button-section {
+          right: 40px;
+          bottom: 60px;
         }
 
-        .info-grid {
+        .button-container {
           gap: 15px;
         }
 
-        .info-card {
-          padding: 18px;
+        .main-button {
+          width: 180px;
+          font-size: 0.95rem;
+          padding: 16px 22px;
+        }
+
+        .modal-content {
+          padding: 25px;
+          max-width: 450px;
         }
       }
 
       @media (max-width: 480px) {
         .hero-section {
-          height: 50vh;
-          min-height: 400px;
+          height: 100vh;
+          min-height: 600px;
           background-position: center center;
           background-attachment: scroll;
         }
 
-        .info-section {
-          min-height: 45vh;
-          padding: 15px;
+        .button-section {
+          right: 20px;
+          bottom: 40px;
         }
 
-        .info-grid {
+        .button-container {
           gap: 12px;
+        }
+
+        .main-button {
+          width: 160px;
+          font-size: 0.9rem;
+          padding: 14px 18px;
+        }
+
+        .modal-content {
+          padding: 25px;
+          max-width: 350px;
+          margin: 20px;
+        }
+
+        .modal-title {
+          font-size: 1.4rem;
         }
 
         .hero-content {
@@ -606,87 +791,146 @@
         </div>
       </section>
 
-      <!-- 하단 정보 섹션 -->
-      <section class="info-section">
-        <div class="info-grid">
-          <!-- 지도 섹션 -->
-          <div class="map-section">
+      <!-- 하단 버튼 섹션 -->
+      <section class="button-section">
+        <div class="button-container">
+          <button class="main-button" onclick="openLocationModal()">
+            오시는 길
+          </button>
+          <button class="main-button" onclick="openAccountModal()">
+            마음 전하실 곳
+          </button>
+        </div>
+      </section>
+
+      <!-- 오시는 길 모달 -->
+      <div id="locationModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">오시는 길</h3>
+            <button class="close-btn" onclick="closeModal('locationModal')">
+              &times;
+            </button>
+          </div>
+
+          <div class="location-details">
+            <div class="venue-name">서울가든호텔</div>
+            <div class="venue-address">
+              서울 마포구 마포대로 58<br />
+              2층 그랜드볼룸<br />
+              <strong>2025년 9월 6일 토요일 오후 12시</strong>
+            </div>
+
             <div class="map-container">
               <div
                 id="daumRoughmapContainer1751181001388"
                 class="root_daum_roughmap root_daum_roughmap_landing"
               ></div>
             </div>
-          </div>
 
-          <!-- 오시는 길 카드 -->
-          <div class="info-card location-card">
-            <h3 class="card-title">오시는 길</h3>
-            <div class="location-details">
-              <div class="venue-name">서울가든호텔</div>
-              <div class="venue-address">
-                서울 마포구 마포대로 58<br />
-                2층 그랜드볼룸<br />
-                <strong>2025년 9월 6일 토요일 오후 12시</strong>
-              </div>
-
-              <div class="transport-section">
-                <div class="transport-title">지하철</div>
-                <div class="transport-item">
-                  마포역 (5호선) 3번 출구 도보 3분
-                </div>
-                <div class="transport-item">
-                  공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
-                </div>
-              </div>
-
-              <div class="transport-section">
-                <div class="transport-title">버스</div>
-                <div class="transport-item">
-                  간선버스(파랑): 600, 260, 261, 463, 160
-                </div>
-                <div class="transport-item">
-                  지선버스(초록): 7611, 7613, 7016
-                </div>
-                <div class="transport-item">
-                  광역버스(빨강): 8600, 8601, 6605
-                </div>
-              </div>
-
-              <div class="transport-section">
-                <div class="transport-title">주차</div>
-                <div class="transport-item">
-                  주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
-                  호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우
-                  접수대에서<br />
-                  발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
-                </div>
+            <div class="transport-section">
+              <div class="transport-title">지하철</div>
+              <div class="transport-item">마포역 (5호선) 3번 출구 도보 3분</div>
+              <div class="transport-item">
+                공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
               </div>
             </div>
-          </div>
 
-          <!-- 마음 전하실 곳 카드 -->
-          <div class="info-card account-card">
-            <h3 class="card-title">마음 전하실 곳</h3>
-            <div class="account-item">
-              <div class="account-header">
-                <span class="bank-name">신한은행</span>
-                <span class="account-holder">남태양</span>
+            <div class="transport-section">
+              <div class="transport-title">버스</div>
+              <div class="transport-item">
+                간선버스(파랑): 600, 260, 261, 463, 160
               </div>
-              <div class="account-number">110-123-456789</div>
-              <button
-                class="copy-btn"
-                onclick="copyToClipboard('110-123-456789')"
-              >
-                계좌번호 복사
-              </button>
+              <div class="transport-item">지선버스(초록): 7611, 7613, 7016</div>
+              <div class="transport-item">광역버스(빨강): 8600, 8601, 6605</div>
+            </div>
+
+            <div class="transport-section">
+              <div class="transport-title">주차</div>
+              <div class="transport-item">
+                주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
+                호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우 접수대에서<br />
+                발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <!-- 마음 전하실 곳 모달 -->
+      <div id="accountModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">마음 전하실 곳</h3>
+            <button class="close-btn" onclick="closeModal('accountModal')">
+              &times;
+            </button>
+          </div>
+
+          <div class="account-item">
+            <div class="account-header">
+              <span class="bank-name">신한은행</span>
+              <span class="account-holder">남태양</span>
+            </div>
+            <div class="account-number">110-123-456789</div>
+            <button
+              class="copy-btn"
+              onclick="copyToClipboard('110-123-456789')"
+            >
+              계좌번호 복사
+            </button>
+          </div>
+
+          <div
+            style="
+              margin-top: 20px;
+              text-align: center;
+              font-size: 0.9rem;
+              color: #8b4513;
+              line-height: 1.5;
+            "
+          >
+            소중한 마음 감사드립니다.<br />
+            축하해 주시는 것만으로도 큰 기쁨입니다.
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
+      // 모달 열기/닫기 함수
+      function openLocationModal() {
+        document.getElementById("locationModal").classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+
+      function openAccountModal() {
+        document.getElementById("accountModal").classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove("show");
+        document.body.style.overflow = "auto";
+      }
+
+      // 모달 외부 클릭 시 닫기
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("modal")) {
+          closeModal(e.target.id);
+        }
+      });
+
+      // ESC 키로 모달 닫기
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const openModal = document.querySelector(".modal.show");
+          if (openModal) {
+            closeModal(openModal.id);
+          }
+        }
+      });
+
       // 계좌번호 복사 기능
       function copyToClipboard(text) {
         navigator.clipboard
@@ -728,14 +972,14 @@
 
       // 페이지 로드 시 애니메이션
       document.addEventListener("DOMContentLoaded", function () {
-        const cards = document.querySelectorAll(".info-card");
-        cards.forEach((card, index) => {
-          card.style.opacity = "0";
-          card.style.transform = "translateY(30px)";
+        const buttons = document.querySelectorAll(".main-button");
+        buttons.forEach((button, index) => {
+          button.style.opacity = "0";
+          button.style.transform = "translateY(30px)";
           setTimeout(() => {
-            card.style.transition = "all 0.8s ease-out";
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
+            button.style.transition = "all 0.8s ease-out";
+            button.style.opacity = "1";
+            button.style.transform = "translateY(0)";
           }, index * 200 + 500);
         });
       });
