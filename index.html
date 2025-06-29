@@ -37,8 +37,8 @@
       /* 상단 히어로 섹션 - 배경 이미지 */
       .hero-section {
         position: relative;
-        height: 100vh;
-        min-height: 800px;
+        height: 60vh;
+        min-height: 500px;
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.3)
@@ -58,7 +58,7 @@
 
       .hero-content {
         z-index: 2;
-        padding: 40px;
+        padding: 30px;
         max-width: 800px;
         width: 100%;
       }
@@ -78,7 +78,7 @@
         font-family: "Playfair Display", serif;
         font-size: 3.5rem;
         font-weight: 300;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         text-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
         letter-spacing: 8px;
         color: #ffffff;
@@ -601,7 +601,7 @@
       /* 반응형 디자인 */
       @media (max-width: 768px) {
         .hero-section {
-          height: 55vh;
+          height: 60vh;
           min-height: 450px;
           background-attachment: scroll;
         }
@@ -641,128 +641,111 @@
           letter-spacing: 1.5px;
         }
 
-        .info-grid {
+        .info-section {
+          padding: 30px 15px;
+        }
+
+        .info-container {
           grid-template-columns: 1fr;
-          gap: 20px;
-          padding: 0 15px;
+          gap: 40px;
         }
 
         .info-card {
-          padding: 25px;
+          padding: 30px 25px;
         }
 
-        .transport-section {
+        .info-title {
+          font-size: 1.5rem;
+          margin-bottom: 25px;
+        }
+
+        .location-info .venue-name {
+          font-size: 1.2rem;
           margin-bottom: 12px;
         }
 
-        .transport-title {
-          font-size: 0.95rem;
+        .location-info .venue-address {
+          font-size: 1rem;
+          margin-bottom: 20px;
+        }
+
+        .location-info .transport-section {
+          margin-bottom: 15px;
+        }
+
+        .location-info .transport-title {
+          font-size: 1rem;
           margin-bottom: 6px;
         }
 
-        .transport-item {
-          font-size: 0.8rem;
-          padding: 5px 8px;
+        .location-info .transport-item {
+          font-size: 0.9rem;
+          padding: 6px 12px;
         }
 
-        .info-grid {
-          grid-template-columns: 1fr;
-          grid-template-rows: auto auto auto;
-          height: auto;
+        .account-info .account-item {
+          padding: 18px;
         }
 
-        .location-card {
-          grid-column: 1;
-          grid-row: 1;
+        .account-info .bank-name {
+          font-size: 1rem;
         }
 
-        .map-section {
-          grid-column: 1;
-          grid-row: 2;
+        .account-info .account-number {
+          font-size: 1.2rem;
         }
 
-        .map-section .map-container {
-          height: 320px;
+        .account-info .copy-btn {
+          font-size: 0.95rem;
+          padding: 12px 20px;
+        }
+
+        .account-message {
+          font-size: 0.95rem;
+        }
+
+        .map-container {
+          height: 250px;
         }
 
         .root_daum_roughmap {
-          height: 320px !important;
-          min-height: 320px !important;
+          height: 250px !important;
+          min-height: 250px !important;
         }
 
         .root_daum_roughmap .roughmap_holder {
-          height: 320px !important;
+          height: 250px !important;
         }
 
         .root_daum_roughmap iframe {
-          height: 320px !important;
+          height: 250px !important;
         }
 
-        .account-card {
-          grid-column: 1;
-          grid-row: 3;
-        }
-      }
-
-      @media (max-width: 768px) and (min-width: 481px) {
-        .hero-section {
-          height: 100vh;
-          min-height: 700px;
-          background-position: center 15%;
+        .transport-account-info {
+          gap: 30px;
         }
 
-        .button-section {
-          right: 40px;
-          bottom: 60px;
+        .transport-info .transport-section {
+          margin-bottom: 18px;
         }
 
-        .button-container {
-          gap: 15px;
+        .account-info .account-item {
+          padding: 22px;
+          margin-bottom: 18px;
         }
 
-        .main-button {
-          width: 180px;
-          font-size: 0.95rem;
-          padding: 16px 22px;
-        }
-
-        .modal-content {
-          padding: 25px;
-          max-width: 650px;
+        .account-message {
+          margin-top: 25px;
+          padding: 15px 0;
         }
       }
 
       @media (max-width: 480px) {
         .hero-section {
-          height: 100vh;
-          min-height: 600px;
+          height: 55vh;
+          min-height: 400px;
           background-position: center center;
           background-attachment: scroll;
-        }
-
-        .button-section {
-          right: 20px;
-          bottom: 40px;
-        }
-
-        .button-container {
-          gap: 12px;
-        }
-
-        .main-button {
-          width: 160px;
-          font-size: 0.9rem;
-          padding: 14px 18px;
-        }
-
-        .modal-content {
-          padding: 20px;
-          max-width: 380px;
-          margin: 20px;
-        }
-
-        .modal-title {
-          font-size: 1.4rem;
         }
 
         .hero-content {
@@ -807,12 +790,63 @@
           letter-spacing: 1px;
         }
 
-        .info-card {
-          padding: 20px;
+        .info-section {
+          padding: 20px 10px;
         }
 
-        .card-title {
-          font-size: 1.3rem;
+        .info-container {
+          gap: 30px;
+        }
+
+        .info-card {
+          padding: 25px 20px;
+        }
+
+        .info-title {
+          font-size: 1.4rem;
+          margin-bottom: 20px;
+        }
+
+        .location-info .venue-name {
+          font-size: 1.1rem;
+        }
+
+        .location-info .venue-address {
+          font-size: 0.95rem;
+        }
+
+        .location-info .transport-title {
+          font-size: 0.95rem;
+        }
+
+        .location-info .transport-item {
+          font-size: 0.85rem;
+          padding: 5px 10px;
+        }
+
+        .account-info .account-item {
+          padding: 15px;
+        }
+
+        .account-info .bank-name {
+          font-size: 0.95rem;
+        }
+
+        .account-info .account-holder {
+          font-size: 0.9rem;
+        }
+
+        .account-info .account-number {
+          font-size: 1.1rem;
+        }
+
+        .account-info .copy-btn {
+          font-size: 0.9rem;
+          padding: 10px 18px;
+        }
+
+        .account-message {
+          font-size: 0.9rem;
         }
 
         .toast {
@@ -835,6 +869,299 @@
           line-height: 18px;
           font-size: 11px;
         }
+
+        .map-container {
+          height: 220px;
+        }
+
+        .root_daum_roughmap {
+          height: 220px !important;
+          min-height: 220px !important;
+        }
+
+        .root_daum_roughmap .roughmap_holder {
+          height: 220px !important;
+        }
+
+        .root_daum_roughmap iframe {
+          height: 220px !important;
+        }
+
+        .transport-account-info {
+          gap: 20px;
+        }
+      }
+
+      /* 정보 섹션 스타일 */
+      .info-section {
+        padding: 40px 20px;
+        background: linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fafafa 50%,
+          #ffffff 100%
+        );
+      }
+
+      .info-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: stretch;
+      }
+
+      .info-card {
+        background: linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #fafafa 50%,
+          #ffffff 100%
+        );
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
+          0 8px 16px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .info-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #8b4513;
+        text-align: center;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        position: relative;
+      }
+
+      .info-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+      }
+
+      /* 오시는 길 스타일 */
+      .location-info .venue-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #2c1810;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .location-info .venue-address {
+        font-size: 1.1rem;
+        color: #5d4037;
+        margin-bottom: 25px;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .location-info .venue-address strong {
+        color: #8b4513;
+        font-weight: 600;
+      }
+
+      .location-info .transport-section {
+        margin-bottom: 20px;
+      }
+
+      .location-info .transport-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #8b4513;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        padding-bottom: 5px;
+      }
+
+      .location-info .transport-item {
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.05) 0%,
+          rgba(212, 175, 55, 0.08) 100%
+        );
+        padding: 8px 15px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+        color: #2c1810;
+        line-height: 1.4;
+        border-left: 3px solid rgba(212, 175, 55, 0.4);
+        box-shadow: 0 2px 4px rgba(212, 175, 55, 0.1);
+      }
+
+      /* 마음 전하실 곳 스타일 */
+      .account-info .account-item {
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.05) 0%,
+          rgba(212, 175, 55, 0.08) 100%
+        );
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        border-left: 4px solid #d4af37;
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+      }
+
+      .account-info .account-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .account-info .bank-name {
+        font-weight: 600;
+        color: #2c1810;
+        font-size: 1.1rem;
+      }
+
+      .account-info .account-holder {
+        font-size: 1rem;
+        color: #5d4037;
+      }
+
+      .account-info .account-number {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #2c1810;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+
+      .account-info .copy-btn {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(248, 248, 248, 0.9) 50%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        color: #2c1810;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        width: 100%;
+        text-shadow: none;
+        letter-spacing: 0.3px;
+        font-family: "Playfair Display", serif;
+      }
+
+      .account-info .copy-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 1);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(250, 250, 250, 1) 50%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        border-color: rgba(0, 0, 0, 0.15);
+      }
+
+      .account-message {
+        margin-top: 30px;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 1rem;
+        color: #8b4513;
+        line-height: 1.6;
+        font-style: italic;
+      }
+
+      /* 카카오맵 스타일 */
+      .map-container {
+        margin: 20px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        height: 300px;
+        position: relative;
+      }
+
+      .root_daum_roughmap {
+        width: 100% !important;
+        height: 300px !important;
+        min-height: 300px !important;
+      }
+
+      .root_daum_roughmap .roughmap_holder {
+        width: 100% !important;
+        height: 300px !important;
+      }
+
+      .root_daum_roughmap iframe {
+        width: 100% !important;
+        height: 300px !important;
+        border: none !important;
+      }
+
+      /* 교통편 & 마음 전하실 곳 컨테이너 */
+      .transport-account-info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        height: 100%;
+        justify-content: space-between;
+      }
+
+      .transport-info {
+        flex: 1;
+      }
+
+      .transport-info .info-title {
+        margin-bottom: 25px;
+      }
+
+      .transport-info .transport-section {
+        margin-bottom: 20px;
+      }
+
+      .transport-info .transport-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .account-info .info-title {
+        margin-top: 15px;
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .account-info .info-title::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.3),
+          transparent
+        );
       }
     </style>
   </head>
@@ -861,29 +1188,12 @@
         </div>
       </section>
 
-      <!-- 하단 버튼 섹션 -->
-      <section class="button-section">
-        <div class="button-container">
-          <button class="main-button" onclick="openLocationModal()">
-            오시는 길
-          </button>
-          <button class="main-button" onclick="openAccountModal()">
-            마음 전하실 곳
-          </button>
-        </div>
-      </section>
-
-      <!-- 오시는 길 모달 -->
-      <div id="locationModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">오시는 길</h3>
-            <button class="close-btn" onclick="closeModal('locationModal')">
-              &times;
-            </button>
-          </div>
-
-          <div class="location-details">
+      <!-- 정보 섹션 -->
+      <section class="info-section">
+        <div class="info-container">
+          <!-- 오시는 길 -->
+          <div class="info-card location-info">
+            <h3 class="info-title">오시는 길</h3>
             <div class="venue-name">서울가든호텔</div>
             <div class="venue-address">
               서울 마포구 마포대로 58<br />
@@ -899,123 +1209,80 @@
               -->
               <!-- 1. 약도 노드 -->
               <div
-                id="daumRoughmapContainer1751184974319"
+                id="daumRoughmapContainer1751191498949"
                 class="root_daum_roughmap root_daum_roughmap_landing"
               ></div>
             </div>
+          </div>
 
-            <div class="transport-section">
-              <div class="transport-title">지하철</div>
-              <div class="transport-item">마포역 (5호선) 3번 출구 도보 3분</div>
-              <div class="transport-item">
-                공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
+          <!-- 교통편 & 마음 전하실 곳 -->
+          <div class="info-card transport-account-info">
+            <!-- 교통편 정보 -->
+            <div class="transport-info">
+              <h3 class="info-title">교통편</h3>
+
+              <div class="transport-section">
+                <div class="transport-title">지하철</div>
+                <div class="transport-item">
+                  마포역 (5호선) 3번 출구 도보 3분
+                </div>
+                <div class="transport-item">
+                  공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
+                </div>
+              </div>
+
+              <div class="transport-section">
+                <div class="transport-title">버스</div>
+                <div class="transport-item">
+                  간선버스(파랑): 600, 260, 261, 463, 160
+                </div>
+                <div class="transport-item">
+                  지선버스(초록): 7611, 7613, 7016
+                </div>
+                <div class="transport-item">
+                  광역버스(빨강): 8600, 8601, 6605
+                </div>
+              </div>
+
+              <div class="transport-section">
+                <div class="transport-title">주차</div>
+                <div class="transport-item">
+                  주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
+                  호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우
+                  접수대에서<br />
+                  발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
+                </div>
               </div>
             </div>
 
-            <div class="transport-section">
-              <div class="transport-title">버스</div>
-              <div class="transport-item">
-                간선버스(파랑): 600, 260, 261, 463, 160
+            <!-- 마음 전하실 곳 -->
+            <div class="account-info">
+              <h3 class="info-title">마음 전하실 곳</h3>
+              <div class="account-item">
+                <div class="account-header">
+                  <span class="bank-name">우리은행</span>
+                  <span class="account-holder">최경호</span>
+                </div>
+                <div class="account-number">102-07-015660</div>
+                <button
+                  class="copy-btn"
+                  onclick="copyToClipboard('102-07-015660')"
+                >
+                  계좌번호 복사
+                </button>
               </div>
-              <div class="transport-item">지선버스(초록): 7611, 7613, 7016</div>
-              <div class="transport-item">광역버스(빨강): 8600, 8601, 6605</div>
-            </div>
 
-            <div class="transport-section">
-              <div class="transport-title">주차</div>
-              <div class="transport-item">
-                주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
-                호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우 접수대에서<br />
-                발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
+              <div class="account-message">
+                소중한 마음 감사드립니다.<br />
+                축하해 주시는 것만으로도 큰 기쁨입니다.
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- 마음 전하실 곳 모달 -->
-      <div id="accountModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">마음 전하실 곳</h3>
-            <button class="close-btn" onclick="closeModal('accountModal')">
-              &times;
-            </button>
-          </div>
-
-          <div class="account-item">
-            <div class="account-header">
-              <span class="bank-name">우리은행</span>
-              <span class="account-holder">최경호</span>
-            </div>
-            <div class="account-number">102-07-015660</div>
-            <button class="copy-btn" onclick="copyToClipboard('102-07-015660')">
-              계좌번호 복사
-            </button>
-          </div>
-
-          <div
-            style="
-              margin-top: 20px;
-              text-align: center;
-              font-size: 0.9rem;
-              color: #8b4513;
-              line-height: 1.5;
-            "
-          >
-            소중한 마음 감사드립니다.<br />
-            축하해 주시는 것만으로도 큰 기쁨입니다.
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
 
     <script>
-      // 모달 열기/닫기 함수
-      function openLocationModal() {
-        document.getElementById("locationModal").classList.add("show");
-        document.body.style.overflow = "hidden";
-
-        // 지도 다시 로드
-        setTimeout(() => {
-          if (window.daum && window.daum.roughmap) {
-            new daum.roughmap.Lander({
-              timestamp: "1751184974319",
-              key: "4dwojks7zhq",
-              mapWidth: "640",
-              mapHeight: "360",
-            }).render();
-          }
-        }, 100);
-      }
-
-      function openAccountModal() {
-        document.getElementById("accountModal").classList.add("show");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeModal(modalId) {
-        document.getElementById(modalId).classList.remove("show");
-        document.body.style.overflow = "auto";
-      }
-
-      // 모달 외부 클릭 시 닫기
-      document.addEventListener("click", function (e) {
-        if (e.target.classList.contains("modal")) {
-          closeModal(e.target.id);
-        }
-      });
-
-      // ESC 키로 모달 닫기
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          const openModal = document.querySelector(".modal.show");
-          if (openModal) {
-            closeModal(openModal.id);
-          }
-        }
-      });
-
       // 계좌번호 복사 기능
       function copyToClipboard(text) {
         navigator.clipboard
@@ -1072,15 +1339,15 @@
 
       // 페이지 로드 시 애니메이션
       document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".main-button");
-        buttons.forEach((button, index) => {
-          button.style.opacity = "0";
-          button.style.transform = "translateY(30px)";
+        const infoCards = document.querySelectorAll(".info-card");
+        infoCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
           setTimeout(() => {
-            button.style.transition = "all 0.8s ease-out";
-            button.style.opacity = "1";
-            button.style.transform = "translateY(0)";
-          }, index * 200 + 500);
+            card.style.transition = "all 0.8s ease-out";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 200 + 300);
         });
       });
     </script>
@@ -1096,8 +1363,8 @@
     <!-- 3. 실행 스크립트 -->
     <script charset="UTF-8">
       new daum.roughmap.Lander({
-        timestamp: "1751184974319",
-        key: "4dwojks7zhq",
+        timestamp: "1751191498949",
+        key: "4e3bnqsnwcc",
         mapWidth: "640",
         mapHeight: "360",
       }).render();
