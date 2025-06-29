@@ -37,11 +37,11 @@
       /* 상단 히어로 섹션 - 배경 이미지 */
       .hero-section {
         position: relative;
-        height: 50vh;
-        min-height: 400px;
+        height: 60vh;
+        min-height: 500px;
         background-image: linear-gradient(
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.4)
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.3)
           ),
           url("marry.jpg");
         background-size: cover;
@@ -57,51 +57,63 @@
 
       .hero-content {
         z-index: 2;
-        padding: 20px;
+        padding: 40px;
+        max-width: 800px;
+        width: 100%;
       }
 
       .wedding-title {
         font-family: "Great Vibes", cursive;
-        font-size: 3rem;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        color: #d4af37;
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        opacity: 0.9;
+        font-weight: 400;
+        letter-spacing: 2px;
       }
 
       .couple-names {
         font-family: "Playfair Display", serif;
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 30px;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        letter-spacing: 3px;
+        font-size: 3.5rem;
+        font-weight: 300;
+        margin-bottom: 40px;
+        text-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+        letter-spacing: 8px;
+        color: #ffffff;
+        position: relative;
       }
 
       .couple-names .heart {
         color: #d4af37;
-        margin: 0 15px;
-        animation: heartBeat 2s ease-in-out infinite;
+        margin: 0 20px;
+        font-size: 2.5rem;
+        animation: heartBeat 3s ease-in-out infinite;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
       }
 
       @keyframes heartBeat {
         0%,
         100% {
           transform: scale(1);
+          opacity: 0.8;
         }
         50% {
           transform: scale(1.1);
+          opacity: 1;
         }
       }
 
       .parents-info {
-        background: rgba(255, 255, 255, 0.95);
-        color: #2c1810;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        border: 2px solid rgba(212, 175, 55, 0.3);
-        max-width: 500px;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 3;
+        max-width: 800px;
         width: 100%;
+        padding: 0 20px;
       }
 
       .parent-section {
@@ -114,19 +126,25 @@
       }
 
       .parent-label {
-        font-family: "Playfair Display", serif;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #8b4513;
-        margin-bottom: 8px;
-        letter-spacing: 1px;
+        font-family: "Great Vibes", cursive;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #d4af37;
+        margin-bottom: 5px;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        opacity: 0.9;
       }
 
       .parent-details {
-        font-family: "Noto Serif KR", serif;
-        font-size: 1rem;
-        color: #5d4037;
-        line-height: 1.4;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        color: #ffffff;
+        line-height: 1.5;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+        margin-bottom: 8px;
       }
 
       /* 하단 정보 섹션 */
@@ -361,17 +379,44 @@
       /* 반응형 디자인 */
       @media (max-width: 768px) {
         .hero-section {
-          height: 45vh;
-          min-height: 350px;
+          height: 55vh;
+          min-height: 450px;
           background-attachment: scroll;
         }
 
+        .hero-content {
+          padding: 30px 20px;
+        }
+
         .wedding-title {
-          font-size: 2.5rem;
+          font-size: 1.8rem;
+          margin-bottom: 12px;
         }
 
         .couple-names {
+          font-size: 2.8rem;
+          letter-spacing: 4px;
+          margin-bottom: 35px;
+        }
+
+        .couple-names .heart {
           font-size: 2rem;
+          margin: 0 15px;
+        }
+
+        .parents-info {
+          bottom: 30px;
+          padding: 0 15px;
+        }
+
+        .parent-label {
+          font-size: 1rem;
+          letter-spacing: 1.5px;
+        }
+
+        .parent-details {
+          font-size: 1.2rem;
+          letter-spacing: 1.5px;
         }
 
         .info-grid {
@@ -383,25 +428,54 @@
         .info-card {
           padding: 25px;
         }
-
-        .parents-info {
-          padding: 20px;
-          margin: 0 15px;
-        }
       }
 
       @media (max-width: 480px) {
         .hero-section {
-          height: 40vh;
-          min-height: 300px;
+          height: 50vh;
+          min-height: 400px;
+        }
+
+        .hero-content {
+          padding: 25px 15px;
         }
 
         .wedding-title {
-          font-size: 2rem;
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+          letter-spacing: 1px;
         }
 
         .couple-names {
-          font-size: 1.5rem;
+          font-size: 2.2rem;
+          letter-spacing: 2px;
+          margin-bottom: 30px;
+        }
+
+        .couple-names .heart {
+          font-size: 1.8rem;
+          margin: 0 10px;
+        }
+
+        .parents-info {
+          bottom: 20px;
+          padding: 0 10px;
+        }
+
+        .parent-section {
+          margin-bottom: 12px;
+        }
+
+        .parent-label {
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+          margin-bottom: 3px;
+        }
+
+        .parent-details {
+          font-size: 1.1rem;
+          line-height: 1.4;
+          letter-spacing: 1px;
         }
 
         .info-card {
@@ -410,10 +484,6 @@
 
         .card-title {
           font-size: 1.3rem;
-        }
-
-        .parents-info {
-          padding: 18px;
         }
 
         .toast {
