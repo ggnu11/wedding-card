@@ -272,9 +272,9 @@
           0 15px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.8);
         position: relative;
-        max-width: 480px;
+        max-width: 700px;
         width: 90%;
-        max-height: 80vh;
+        max-height: 90vh;
         overflow-y: auto;
         animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         backdrop-filter: blur(20px);
@@ -437,17 +437,30 @@
 
       /* 카카오맵 스타일 */
       .map-container {
-        margin: 8px 0;
-        border-radius: 10px;
+        margin: 15px 0;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 8px 20px rgba(139, 69, 19, 0.1);
-        border: 2px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        height: 360px;
+        position: relative;
       }
 
       .root_daum_roughmap {
         width: 100% !important;
-        height: 180px !important;
-        min-height: 180px !important;
+        height: 360px !important;
+        min-height: 360px !important;
+      }
+
+      .root_daum_roughmap .roughmap_holder {
+        width: 100% !important;
+        height: 360px !important;
+      }
+
+      .root_daum_roughmap iframe {
+        width: 100% !important;
+        height: 360px !important;
+        border: none !important;
       }
 
       .transport-section {
@@ -498,57 +511,91 @@
       .copy-btn {
         background: linear-gradient(
           135deg,
-          #d4af37 0%,
-          #f4e4bc 50%,
-          #d4af37 100%
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(248, 248, 248, 0.9) 50%,
+          rgba(255, 255, 255, 0.9) 100%
         );
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 25px;
+        color: #2c1810;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 24px;
+        border-radius: 50px;
         font-size: 0.9rem;
-        font-weight: 600;
+        font-weight: 500;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
         width: 100%;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        letter-spacing: 0.5px;
+        text-shadow: none;
+        letter-spacing: 0.3px;
+        font-family: "Playfair Display", serif;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
       }
 
       .copy-btn:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 1);
         background: linear-gradient(
           135deg,
-          #e6c547 0%,
-          #f8e8c8 50%,
-          #e6c547 100%
+          rgba(255, 255, 255, 1) 0%,
+          rgba(250, 250, 250, 1) 50%,
+          rgba(255, 255, 255, 1) 100%
         );
+        border-color: rgba(0, 0, 0, 0.15);
+        color: #1a0f08;
       }
 
       /* 토스트 알림 */
       .toast {
         position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 15px 35px rgba(139, 69, 19, 0.3);
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100px);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(248, 248, 248, 0.95) 50%,
+          rgba(255, 255, 255, 0.95) 100%
+        );
+        color: #2c1810;
+        padding: 16px 24px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+          0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         z-index: 1000;
         opacity: 0;
-        transform: translateX(100%);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .toast::before {
+        content: "✓";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        flex-shrink: 0;
       }
 
       .toast.show {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(-50%) translateY(0);
       }
 
       /* 반응형 디자인 */
@@ -635,7 +682,20 @@
         }
 
         .map-section .map-container {
-          height: 250px;
+          height: 320px;
+        }
+
+        .root_daum_roughmap {
+          height: 320px !important;
+          min-height: 320px !important;
+        }
+
+        .root_daum_roughmap .roughmap_holder {
+          height: 320px !important;
+        }
+
+        .root_daum_roughmap iframe {
+          height: 320px !important;
         }
 
         .account-card {
@@ -668,7 +728,7 @@
 
         .modal-content {
           padding: 25px;
-          max-width: 450px;
+          max-width: 650px;
         }
       }
 
@@ -696,8 +756,8 @@
         }
 
         .modal-content {
-          padding: 25px;
-          max-width: 350px;
+          padding: 20px;
+          max-width: 380px;
           margin: 20px;
         }
 
@@ -756,14 +816,24 @@
         }
 
         .toast {
-          top: 10px;
-          right: 10px;
-          left: 10px;
-          transform: translateY(-100%);
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%) translateY(-80px);
+          padding: 14px 20px;
+          font-size: 0.85rem;
+          max-width: 280px;
+          width: auto;
         }
 
         .toast.show {
-          transform: translateY(0);
+          transform: translateX(-50%) translateY(0);
+        }
+
+        .toast::before {
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+          font-size: 11px;
         }
       }
     </style>
@@ -822,8 +892,14 @@
             </div>
 
             <div class="map-container">
+              <!--
+                * 카카오맵 - 약도서비스
+                * 한 페이지 내에 약도를 2개 이상 넣을 경우에는
+                * 약도의 수 만큼 소스를 새로 생성, 삽입해야 합니다.
+              -->
+              <!-- 1. 약도 노드 -->
               <div
-                id="daumRoughmapContainer1751181001388"
+                id="daumRoughmapContainer1751184974319"
                 class="root_daum_roughmap root_daum_roughmap_landing"
               ></div>
             </div>
@@ -902,6 +978,18 @@
       function openLocationModal() {
         document.getElementById("locationModal").classList.add("show");
         document.body.style.overflow = "hidden";
+
+        // 지도 다시 로드
+        setTimeout(() => {
+          if (window.daum && window.daum.roughmap) {
+            new daum.roughmap.Lander({
+              timestamp: "1751184974319",
+              key: "4dwojks7zhq",
+              mapWidth: "640",
+              mapHeight: "360",
+            }).render();
+          }
+        }, 100);
       }
 
       function openAccountModal() {
@@ -953,21 +1041,36 @@
 
       // 토스트 알림 표시
       function showToast(message) {
+        // 기존 토스트가 있다면 제거
+        const existingToast = document.querySelector(".toast");
+        if (existingToast) {
+          document.body.removeChild(existingToast);
+        }
+
         const toast = document.createElement("div");
         toast.className = "toast";
-        toast.textContent = message;
+
+        // 메시지 텍스트만 추가 (::before로 체크마크 표시)
+        const messageSpan = document.createElement("span");
+        messageSpan.textContent = message;
+        toast.appendChild(messageSpan);
+
         document.body.appendChild(toast);
 
+        // 부드러운 나타남 애니메이션
         setTimeout(() => {
           toast.classList.add("show");
-        }, 100);
+        }, 50);
 
+        // 자동 사라짐
         setTimeout(() => {
           toast.classList.remove("show");
           setTimeout(() => {
-            document.body.removeChild(toast);
+            if (document.body.contains(toast)) {
+              document.body.removeChild(toast);
+            }
           }, 400);
-        }, 3000);
+        }, 2500);
       }
 
       // 페이지 로드 시 애니메이션
@@ -996,8 +1099,8 @@
     <!-- 3. 실행 스크립트 -->
     <script charset="UTF-8">
       new daum.roughmap.Lander({
-        timestamp: "1751181001388",
-        key: "4du3f6uc3re",
+        timestamp: "1751184974319",
+        key: "4dwojks7zhq",
         mapWidth: "640",
         mapHeight: "360",
       }).render();
