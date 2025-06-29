@@ -2,7 +2,16 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#8b4513" />
     <title>결혼식 청첩장</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Great+Vibes&display=swap"
@@ -22,6 +31,10 @@
         min-height: 100vh;
         background: #f8f8f8;
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
       }
 
       .invitation-container {
@@ -598,7 +611,102 @@
         transform: translateX(-50%) translateY(0);
       }
 
-      /* 반응형 디자인 */
+      /* 반응형 디자인 - 태블릿 */
+      @media (max-width: 1024px) {
+        .hero-section {
+          height: 65vh;
+          min-height: 500px;
+        }
+
+        .info-container {
+          gap: 25px;
+          padding: 0 20px;
+          min-height: 500px;
+        }
+
+        .info-card {
+          padding: 25px 20px;
+        }
+
+        .info-title {
+          font-size: 1.4rem;
+        }
+
+        .map-container {
+          height: 250px;
+        }
+
+        .root_daum_roughmap {
+          height: 250px !important;
+          min-height: 250px !important;
+        }
+
+        .root_daum_roughmap .roughmap_holder {
+          height: 250px !important;
+        }
+
+        .root_daum_roughmap iframe {
+          height: 250px !important;
+        }
+
+        .transport-info .transport-section {
+          margin-bottom: 15px;
+        }
+
+        .transport-info .transport-title {
+          font-size: 1rem;
+        }
+
+        .transport-info .transport-item {
+          font-size: 0.9rem;
+          padding: 6px 10px;
+        }
+
+        .account-info .account-item {
+          padding: 18px;
+        }
+
+        .account-info .copy-btn {
+          font-size: 0.95rem;
+          padding: 12px 18px;
+        }
+      }
+
+      /* 반응형 디자인 - 중간 태블릿 */
+      @media (max-width: 900px) {
+        .info-container {
+          gap: 20px;
+          padding: 0 15px;
+          min-height: 450px;
+        }
+
+        .info-card {
+          padding: 30px 20px;
+        }
+
+        .info-title {
+          font-size: 1.3rem;
+        }
+
+        .map-container {
+          height: 280px;
+        }
+
+        .root_daum_roughmap {
+          height: 280px !important;
+          min-height: 280px !important;
+        }
+
+        .root_daum_roughmap .roughmap_holder {
+          height: 280px !important;
+        }
+
+        .root_daum_roughmap iframe {
+          height: 280px !important;
+        }
+      }
+
+      /* 반응형 디자인 - 모바일 태블릿 */
       @media (max-width: 768px) {
         .hero-section {
           height: 60vh;
@@ -607,7 +715,7 @@
         }
 
         .hero-content {
-          padding: 30px 20px;
+          padding: 25px 20px;
         }
 
         .wedding-title {
@@ -618,7 +726,7 @@
         .couple-names {
           font-size: 2.8rem;
           letter-spacing: 4px;
-          margin-bottom: 35px;
+          margin-bottom: 30px;
         }
 
         .couple-names .heart {
@@ -627,7 +735,7 @@
         }
 
         .parents-info {
-          bottom: 30px;
+          bottom: 25px;
           padding: 0 15px;
         }
 
@@ -646,41 +754,48 @@
         }
 
         .info-container {
-          grid-template-columns: 1fr;
-          gap: 40px;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas: "location transport account";
+          gap: 15px;
+          padding: 0 10px;
+          min-height: auto;
         }
 
         .info-card {
-          padding: 30px 25px;
+          padding: 15px 8px;
         }
 
         .info-title {
-          font-size: 1.5rem;
-          margin-bottom: 25px;
+          font-size: 1.1rem;
+          margin-bottom: 12px;
+          text-align: center;
         }
 
         .location-info .venue-name {
-          font-size: 1.2rem;
-          margin-bottom: 12px;
+          font-size: 0.95rem;
+          margin-bottom: 8px;
         }
 
         .location-info .venue-address {
-          font-size: 1rem;
-          margin-bottom: 20px;
+          font-size: 0.8rem;
+          margin-bottom: 12px;
+          line-height: 1.3;
         }
 
-        .location-info .transport-section {
-          margin-bottom: 15px;
+        .transport-info .transport-section {
+          margin-bottom: 12px;
         }
 
-        .location-info .transport-title {
-          font-size: 1rem;
+        .transport-info .transport-title {
+          font-size: 0.9rem;
           margin-bottom: 6px;
         }
 
-        .location-info .transport-item {
-          font-size: 0.9rem;
-          padding: 6px 12px;
+        .transport-info .transport-item {
+          font-size: 0.75rem;
+          padding: 4px 6px;
+          line-height: 1.2;
         }
 
         .account-info .account-item {
@@ -705,38 +820,52 @@
         }
 
         .map-container {
-          height: 250px;
+          height: 180px;
+          margin: 8px 0;
         }
 
         .root_daum_roughmap {
-          height: 250px !important;
-          min-height: 250px !important;
+          height: 180px !important;
+          min-height: 180px !important;
         }
 
         .root_daum_roughmap .roughmap_holder {
-          height: 250px !important;
+          height: 180px !important;
         }
 
         .root_daum_roughmap iframe {
-          height: 250px !important;
-        }
-
-        .transport-account-info {
-          gap: 30px;
-        }
-
-        .transport-info .transport-section {
-          margin-bottom: 18px;
+          height: 180px !important;
         }
 
         .account-info .account-item {
-          padding: 22px;
-          margin-bottom: 18px;
+          padding: 12px 8px;
+          margin-bottom: 10px;
+        }
+
+        .account-info .bank-name {
+          font-size: 0.85rem;
+        }
+
+        .account-info .account-holder {
+          font-size: 0.75rem;
+        }
+
+        .account-info .account-number {
+          font-size: 0.95rem;
+          margin-bottom: 10px;
+        }
+
+        .account-info .copy-btn {
+          font-size: 0.8rem;
+          padding: 10px 8px;
+          min-height: 40px;
         }
 
         .account-message {
-          margin-top: 25px;
-          padding: 15px 0;
+          font-size: 0.75rem;
+          margin-top: 12px;
+          padding: 8px 0;
+          line-height: 1.3;
         }
       }
 
@@ -791,11 +920,16 @@
         }
 
         .info-section {
-          padding: 20px 10px;
+          padding: 25px 10px;
         }
 
         .info-container {
-          gap: 30px;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas: "location transport account";
+          gap: 10px;
+          padding: 0 5px;
+          min-height: auto;
         }
 
         .info-card {
@@ -853,10 +987,11 @@
           top: 20px;
           left: 50%;
           transform: translateX(-50%) translateY(-80px);
-          padding: 14px 20px;
+          padding: 12px 18px;
           font-size: 0.85rem;
-          max-width: 280px;
+          max-width: 90%;
           width: auto;
+          margin: 0 10px;
         }
 
         .toast.show {
@@ -887,8 +1022,89 @@
           height: 220px !important;
         }
 
-        .transport-account-info {
-          gap: 20px;
+        .info-card {
+          padding: 12px 6px;
+        }
+
+        .info-title {
+          font-size: 0.95rem;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        .location-info .venue-name {
+          font-size: 0.8rem;
+          margin-bottom: 6px;
+        }
+
+        .location-info .venue-address {
+          font-size: 0.7rem;
+          margin-bottom: 8px;
+          line-height: 1.2;
+        }
+
+        .map-container {
+          height: 150px;
+          margin: 6px 0;
+        }
+
+        .root_daum_roughmap {
+          height: 150px !important;
+          min-height: 150px !important;
+        }
+
+        .root_daum_roughmap .roughmap_holder {
+          height: 150px !important;
+        }
+
+        .root_daum_roughmap iframe {
+          height: 150px !important;
+        }
+
+        .transport-info .transport-section {
+          margin-bottom: 8px;
+        }
+
+        .transport-info .transport-title {
+          font-size: 0.8rem;
+          margin-bottom: 4px;
+        }
+
+        .transport-info .transport-item {
+          font-size: 0.65rem;
+          padding: 3px 4px;
+          line-height: 1.2;
+        }
+
+        .account-info .account-item {
+          padding: 8px 4px;
+          margin-bottom: 6px;
+        }
+
+        .account-info .bank-name {
+          font-size: 0.75rem;
+        }
+
+        .account-info .account-holder {
+          font-size: 0.65rem;
+        }
+
+        .account-info .account-number {
+          font-size: 0.8rem;
+          margin-bottom: 8px;
+        }
+
+        .account-info .copy-btn {
+          font-size: 0.7rem;
+          padding: 8px 4px;
+          min-height: 32px;
+        }
+
+        .account-message {
+          font-size: 0.65rem;
+          margin-top: 8px;
+          padding: 6px 0;
+          line-height: 1.2;
         }
       }
 
@@ -901,6 +1117,29 @@
           #fafafa 50%,
           #ffffff 100%
         );
+        transform: translateZ(0);
+        will-change: scroll-position;
+      }
+
+      /* 웹앱 standalone 모드 최적화 */
+      .standalone-mode {
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      .standalone-mode .account-info .copy-btn {
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      @media (display-mode: standalone) {
+        .hero-section {
+          padding-top: env(safe-area-inset-top);
+        }
+
+        .info-section {
+          padding-bottom: calc(40px + env(safe-area-inset-bottom));
+        }
       }
 
       .info-container {
@@ -908,8 +1147,25 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+          "location transport"
+          "location account";
+        gap: 30px;
         align-items: stretch;
+        min-height: 600px;
+      }
+
+      .location-info {
+        grid-area: location;
+      }
+
+      .transport-info {
+        grid-area: transport;
+      }
+
+      .account-info {
+        grid-area: account;
       }
 
       .info-card {
@@ -924,6 +1180,8 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
           0 8px 16px rgba(0, 0, 0, 0.04);
         border: 1px solid rgba(0, 0, 0, 0.05);
+        will-change: transform;
+        transform: translateZ(0);
       }
 
       .info-title {
@@ -1065,6 +1323,11 @@
         text-shadow: none;
         letter-spacing: 0.3px;
         font-family: "Playfair Display", serif;
+        min-height: 48px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        touch-action: manipulation;
+        will-change: transform;
+        transform: translateZ(0);
       }
 
       .account-info .copy-btn:hover {
@@ -1097,40 +1360,28 @@
         overflow: hidden;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, 0.1);
-        height: 300px;
+        height: 320px;
         position: relative;
       }
 
       .root_daum_roughmap {
         width: 100% !important;
-        height: 300px !important;
-        min-height: 300px !important;
+        height: 320px !important;
+        min-height: 320px !important;
       }
 
       .root_daum_roughmap .roughmap_holder {
         width: 100% !important;
-        height: 300px !important;
+        height: 320px !important;
       }
 
       .root_daum_roughmap iframe {
         width: 100% !important;
-        height: 300px !important;
+        height: 320px !important;
         border: none !important;
       }
 
-      /* 교통편 & 마음 전하실 곳 컨테이너 */
-      .transport-account-info {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        height: 100%;
-        justify-content: space-between;
-      }
-
-      .transport-info {
-        flex: 1;
-      }
-
+      /* 교통편 정보 */
       .transport-info .info-title {
         margin-bottom: 25px;
       }
@@ -1143,25 +1394,9 @@
         margin-bottom: 0;
       }
 
+      /* 마음 전하실 곳 */
       .account-info .info-title {
-        margin-top: 15px;
         margin-bottom: 25px;
-        position: relative;
-      }
-
-      .account-info .info-title::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(212, 175, 55, 0.3),
-          transparent
-        );
       }
     </style>
   </head>
@@ -1215,67 +1450,57 @@
             </div>
           </div>
 
-          <!-- 교통편 & 마음 전하실 곳 -->
-          <div class="info-card transport-account-info">
-            <!-- 교통편 정보 -->
-            <div class="transport-info">
-              <h3 class="info-title">교통편</h3>
+          <!-- 교통편 -->
+          <div class="info-card transport-info">
+            <h3 class="info-title">교통편</h3>
 
-              <div class="transport-section">
-                <div class="transport-title">지하철</div>
-                <div class="transport-item">
-                  마포역 (5호선) 3번 출구 도보 3분
-                </div>
-                <div class="transport-item">
-                  공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
-                </div>
-              </div>
-
-              <div class="transport-section">
-                <div class="transport-title">버스</div>
-                <div class="transport-item">
-                  간선버스(파랑): 600, 260, 261, 463, 160
-                </div>
-                <div class="transport-item">
-                  지선버스(초록): 7611, 7613, 7016
-                </div>
-                <div class="transport-item">
-                  광역버스(빨강): 8600, 8601, 6605
-                </div>
-              </div>
-
-              <div class="transport-section">
-                <div class="transport-title">주차</div>
-                <div class="transport-item">
-                  주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
-                  호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우
-                  접수대에서<br />
-                  발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
-                </div>
+            <div class="transport-section">
+              <div class="transport-title">지하철</div>
+              <div class="transport-item">마포역 (5호선) 3번 출구 도보 3분</div>
+              <div class="transport-item">
+                공덕역 (6호선, 경의중앙선, 공항철도) 8,9번 출구 도보 5분
               </div>
             </div>
 
-            <!-- 마음 전하실 곳 -->
-            <div class="account-info">
-              <h3 class="info-title">마음 전하실 곳</h3>
-              <div class="account-item">
-                <div class="account-header">
-                  <span class="bank-name">우리은행</span>
-                  <span class="account-holder">최경호</span>
-                </div>
-                <div class="account-number">102-07-015660</div>
-                <button
-                  class="copy-btn"
-                  onclick="copyToClipboard('102-07-015660')"
-                >
-                  계좌번호 복사
-                </button>
+            <div class="transport-section">
+              <div class="transport-title">버스</div>
+              <div class="transport-item">
+                간선버스(파랑): 600, 260, 261, 463, 160
               </div>
+              <div class="transport-item">지선버스(초록): 7611, 7613, 7016</div>
+              <div class="transport-item">광역버스(빨강): 8600, 8601, 6605</div>
+            </div>
 
-              <div class="account-message">
-                소중한 마음 감사드립니다.<br />
-                축하해 주시는 것만으로도 큰 기쁨입니다.
+            <div class="transport-section">
+              <div class="transport-title">주차</div>
+              <div class="transport-item">
+                주차하시는 하객 분들께서는 3시간까지 무료주차 가능하며,<br />
+                호텔 타워주차장(1층 지상)에 주차를 하시게 될 경우 접수대에서<br />
+                발권권과 주차권을 꼭 챙겨서 정산 부탁드리겠습니다.
               </div>
+            </div>
+          </div>
+
+          <!-- 마음 전하실 곳 -->
+          <div class="info-card account-info">
+            <h3 class="info-title">마음 전하실 곳</h3>
+            <div class="account-item">
+              <div class="account-header">
+                <span class="bank-name">우리은행</span>
+                <span class="account-holder">최경호</span>
+              </div>
+              <div class="account-number">102-07-015660</div>
+              <button
+                class="copy-btn"
+                onclick="copyToClipboard('102-07-015660')"
+              >
+                계좌번호 복사
+              </button>
+            </div>
+
+            <div class="account-message">
+              소중한 마음 감사드립니다.<br />
+              축하해 주시는 것만으로도 큰 기쁨입니다.
             </div>
           </div>
         </div>
@@ -1342,13 +1567,24 @@
         const infoCards = document.querySelectorAll(".info-card");
         infoCards.forEach((card, index) => {
           card.style.opacity = "0";
-          card.style.transform = "translateY(30px)";
+          card.style.transform = "translate3d(0, 30px, 0)";
+          card.style.willChange = "transform, opacity";
           setTimeout(() => {
-            card.style.transition = "all 0.8s ease-out";
+            card.style.transition =
+              "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
             card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          }, index * 200 + 300);
+            card.style.transform = "translate3d(0, 0, 0)";
+            // 애니메이션 완료 후 will-change 제거
+            setTimeout(() => {
+              card.style.willChange = "auto";
+            }, 800);
+          }, index * 150 + 200);
         });
+
+        // 웹앱 환경 최적화
+        if (window.matchMedia("(display-mode: standalone)").matches) {
+          document.body.classList.add("standalone-mode");
+        }
       });
     </script>
 
