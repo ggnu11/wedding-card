@@ -99,55 +99,10 @@
       }
 
       .couple-names .heart {
-        color: #d4af37;
+        color: #ffffff;
         margin: 0 20px;
         font-size: 2.5rem;
-        animation: heartBeat 3s ease-in-out infinite;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
-        position: relative;
-        display: inline-block;
-      }
-
-      .couple-names .heart::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 50px;
-        height: 50px;
-        background: radial-gradient(
-          circle,
-          rgba(212, 175, 55, 0.15) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        z-index: -1;
-        animation: heartGlow 3s ease-in-out infinite;
-      }
-
-      @keyframes heartBeat {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 0.8;
-        }
-        50% {
-          transform: scale(1.1);
-          opacity: 1;
-        }
-      }
-
-      @keyframes heartGlow {
-        0%,
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 0.3;
-        }
-        50% {
-          transform: translate(-50%, -50%) scale(1.2);
-          opacity: 0.6;
-        }
+        text-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
       }
 
       .parents-info {
@@ -712,14 +667,6 @@
           background-attachment: scroll;
         }
 
-        body {
-          background: #ffffff !important;
-        }
-
-        .invitation-container {
-          background: #ffffff !important;
-        }
-
         .hero-content {
           padding: 25px 20px;
         }
@@ -738,6 +685,8 @@
         .couple-names .heart {
           font-size: 2rem;
           margin: 0 15px;
+          color: #ffffff;
+          text-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
         }
 
         .parents-info {
@@ -757,7 +706,6 @@
 
         .info-section {
           padding: 30px 15px;
-          background: #ffffff !important;
         }
 
         .info-container {
@@ -769,7 +717,6 @@
 
         .info-card {
           padding: 25px 20px;
-          background: #ffffff !important;
         }
 
         .info-title {
@@ -872,14 +819,6 @@
           background-attachment: scroll;
         }
 
-        body {
-          background: #ffffff !important;
-        }
-
-        .invitation-container {
-          background: #ffffff !important;
-        }
-
         .hero-content {
           padding: 25px 15px;
         }
@@ -899,6 +838,8 @@
         .couple-names .heart {
           font-size: 1.8rem;
           margin: 0 10px;
+          color: #ffffff;
+          text-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
         }
 
         .parents-info {
@@ -924,7 +865,6 @@
 
         .info-section {
           padding: 25px 10px;
-          background: #ffffff !important;
         }
 
         .info-container {
@@ -936,7 +876,6 @@
 
         .info-card {
           padding: 25px 20px;
-          background: #ffffff !important;
         }
 
         .info-title {
@@ -1394,7 +1333,7 @@
         <div class="hero-content">
           <h1 class="wedding-title">Wedding Invitation</h1>
           <div class="couple-names">
-            남태양 <span class="heart">♥</span> 최한나
+            남태양 <span class="heart">&</span> 최한나
           </div>
 
           <div class="parents-info">
@@ -1455,7 +1394,9 @@
                 간선버스(파랑): 600, 260, 261, 463, 160
               </div>
               <div class="transport-item">지선버스(초록): 7611, 7613, 7016</div>
-              <div class="transport-item">광역버스(빨강): 8600, 8601, 6605</div>
+              <div class="transport-item">
+                광역버스(빨강): 8600, 8601, G6605
+              </div>
             </div>
 
             <div class="transport-section">
